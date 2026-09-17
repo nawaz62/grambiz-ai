@@ -42,7 +42,7 @@
 
                     <div id="profile-dropdown" class="profile-dropdown">
                         <div class="dropdown-item"
-                            onclick="alert('Create New Account functionality here.'); document.getElementById('profile-dropdown').classList.remove('show'); event.stopPropagation();">
+                            onclick="window.app.openAddAccountModal(); document.getElementById('profile-dropdown').classList.remove('show'); event.stopPropagation();">
                             <i class="ph ph-user-plus"></i> Add New Account
                         </div>
                         <div class="dropdown-divider"></div>
@@ -806,6 +806,27 @@
     </main>
 
 
+
+    <!-- Add Account Modal -->
+    <div id="add-account-modal" class="modal-overlay">
+        <div class="modal-box glass-card">
+            <div class="modal-header">
+                <h2>Add New Account</h2>
+                <button class="btn-icon close-modal" onclick="window.app.closeAddAccountModal()"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body form-group-custom">
+                <label class="form-label" for="new-acc-name">Name</label>
+                <input type="text" id="new-acc-name" class="form-input" placeholder="e.g. Jane Doe">
+                
+                <label class="form-label mt-3" for="new-acc-age">Age</label>
+                <input type="number" id="new-acc-age" class="form-input" placeholder="e.g. 25">
+            </div>
+            <div class="modal-footer mt-4" style="display: flex; justify-content: flex-end; gap: 1rem;">
+                <button class="btn-secondary" onclick="window.app.closeAddAccountModal()">Cancel</button>
+                <button class="btn-primary" onclick="window.app.saveNewAccount()">Add Account</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

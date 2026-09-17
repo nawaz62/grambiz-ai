@@ -10,6 +10,63 @@ document.addEventListener('DOMContentLoaded', () => {
     window.app = {
         currentView: 'landing', // Tracks active view ('landing', 'dashboard', 'tracking', etc.)
 
+        // Add Account Features
+        openAddAccountModal: function() {
+            const modal = document.getElementById('add-account-modal');
+            if (modal) modal.classList.add('show');
+        },
+
+        closeAddAccountModal: function() {
+            const modal = document.getElementById('add-account-modal');
+            if (modal) modal.classList.remove('show');
+        },
+
+        saveNewAccount: function() {
+            const nameInput = document.getElementById('new-acc-name').value.trim();
+            const ageInput = document.getElementById('new-acc-age').value.trim();
+
+            if (!nameInput || !ageInput) {
+                alert('Please enter both name and age.');
+                return;
+            }
+
+            // Update UI with new account info
+            const navName = document.querySelector('.nav-user-name');
+            if (navName) navName.innerText = nameInput;
+            
+            const navAge = document.querySelector('.nav-user-age');
+            if (navAge) navAge.innerText = `Age: ${ageInput}`;
+            
+            // Generate initials
+            const words = nameInput.split(' ');
+            let initials = '';
+            if (words.length > 1) {
+                initials = words[0][0] + words[1][0];
+            } else {
+                initials = nameInput.substring(0, 2);
+            }
+            initials = initials.toUpperCase();
+            
+            const navAvatar = document.querySelector('.nav-avatar');
+            if (navAvatar) navAvatar.innerText = initials;
+            
+            // Update Dashboard Greeting
+            const dashGreeting = document.querySelector('.dash-header h1');
+            if (dashGreeting) dashGreeting.innerHTML = `Hello, ${nameInput}! 👋`;
+            
+            const dashAvatar = document.querySelector('.dash-header .avatar');
+            if (dashAvatar) dashAvatar.innerText = initials;
+
+            // Close modal
+            this.closeAddAccountModal();
+            
+            // Switch to dashboard view automatically
+            this.toggleView('dashboard');
+            
+            // Clear inputs
+            document.getElementById('new-acc-name').value = '';
+            document.getElementById('new-acc-age').value = '';
+        },
         
         // Mental Wellbeing Features
         setMood: function(mood, btnElement) {

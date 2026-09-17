@@ -3,26 +3,7 @@ import sys
 with open("index.html", "r", encoding="utf-8") as f:
     html = f.read()
 
-# 1. Update sidebars
-dashboard_nav_old = """                    <ul class="sidebar-nav">
-                        <li class="active"><i class="ph ph-squares-four"></i> Overview</li>
-                        <li><i class="ph ph-activity"></i> Vitals</li>
-                        <li><i class="ph ph-brain"></i> Mental Wellbeing</li>
-                        <li><i class="ph ph-apple-logo"></i> Nutrition</li>
-                        <li><i class="ph ph-gear"></i> Settings</li>
-                    </ul>"""
-
-dashboard_nav_new = """                    <ul class="sidebar-nav">
-                        <li class="active"><i class="ph ph-squares-four"></i> Overview</li>
-                        <li onclick="window.app.toggleView('reminders')"><i class="ph ph-bell-ringing"></i> Reminders</li>
-                        <li onclick="window.app.toggleView('emergency')"><i class="ph ph-warning-circle"></i> Emergency</li>
-                        <li onclick="window.app.toggleView('mental-wellbeing')"><i class="ph ph-brain"></i> Mental Wellbeing</li>
-                        <li onclick="window.app.toggleView('nutrition')"><i class="ph ph-apple-logo"></i> Nutrition</li>
-                        <li><i class="ph ph-gear"></i> Settings</li>
-                    </ul>"""
-
-reminders_nav_old = """                    <ul class="sidebar-nav">
-                        <li onclick="window.app.toggleView('dashboard')"><i class="ph ph-squares-four"></i> Overview
+ow.app.toggleView('dashboard')"><i class="ph ph-squares-four"></i> Overview
                         </li>
                         <li class="active"><i class="ph ph-bell-ringing"></i> Reminders</li>
                         <li><i class="ph ph-activity"></i> Vitals</li>
@@ -76,7 +57,26 @@ new_views = """
             <div class="dashboard-layout">
                 <aside class="sidebar">
                     <div class="sidebar-header">
-                        <h2>Dashboard</h2>
+                        <h2>Dashboard</h2># 1. Update sidebars
+dashboard_nav_old = """                    <ul class="sidebar-nav">
+                        <li class="active"><i class="ph ph-squares-four"></i> Overview</li>
+                        <li><i class="ph ph-activity"></i> Vitals</li>
+                        <li><i class="ph ph-brain"></i> Mental Wellbeing</li>
+                        <li><i class="ph ph-apple-logo"></i> Nutrition</li>
+                        <li><i class="ph ph-gear"></i> Settings</li>
+                    </ul>"""
+
+dashboard_nav_new = """                    <ul class="sidebar-nav">
+                        <li class="active"><i class="ph ph-squares-four"></i> Overview</li>
+                        <li onclick="window.app.toggleView('reminders')"><i class="ph ph-bell-ringing"></i> Reminders</li>
+                        <li onclick="window.app.toggleView('emergency')"><i class="ph ph-warning-circle"></i> Emergency</li>
+                        <li onclick="window.app.toggleView('mental-wellbeing')"><i class="ph ph-brain"></i> Mental Wellbeing</li>
+                        <li onclick="window.app.toggleView('nutrition')"><i class="ph ph-apple-logo"></i> Nutrition</li>
+                        <li><i class="ph ph-gear"></i> Settings</li>
+                    </ul>"""
+
+reminders_nav_old = """                    <ul class="sidebar-nav">
+                        <li onclick="wind
                     </div>
                     <ul class="sidebar-nav">
                         <li onclick="window.app.toggleView('dashboard')"><i class="ph ph-squares-four"></i> Overview</li>
